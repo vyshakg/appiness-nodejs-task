@@ -63,13 +63,8 @@ const CORSconfig = {
     app.use(bodyParser.json());
     app.use(cors(CORSconfig));
 
-    // redirecting to swagger docs
-    app.get("/", (req, res) => {
-      return res.redirect(`${host}/api-docs`);
-    });
-
     // readme docs
-    app.get("/readme", function(req, res) {
+    app.get("/", function(req, res) {
       const pathdir = path.join(__dirname, "../README.md");
 
       fs.readFile(pathdir, "utf8", function(err, data) {
