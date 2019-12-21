@@ -52,9 +52,13 @@ const swaggerDocs = swaggerJsDoc(options);
 
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
+
+    // redirecting to swagger docs
     app.get("/", (req, res) => {
       return res.redirect(`${host}/api-docs`);
     });
+
+    // readme docs
     app.get("/readme", function(req, res) {
       const pathdir = path.join(__dirname, "../README.md");
 
@@ -73,7 +77,11 @@ const swaggerDocs = swaggerJsDoc(options);
         </html>`);
       });
     });
+
+    // swaggger docs
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+    // register route
     app.use(userRoute);
 
     app.listen(PORT, () => {
