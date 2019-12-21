@@ -1,4 +1,5 @@
 import bodyParser from "body-parser";
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import fs from "fs";
@@ -46,6 +47,10 @@ const options = {
 
 const swaggerDocs = swaggerJsDoc(options);
 
+const CORSconfig = {
+  origin: "*"
+};
+
 (async () => {
   try {
     const app = express();
@@ -56,6 +61,7 @@ const swaggerDocs = swaggerJsDoc(options);
 
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
+    app.use(cors(CORSconfig));
 
     // redirecting to swagger docs
     app.get("/", (req, res) => {
