@@ -21,7 +21,7 @@ What I have Used :
 
 <pre>
 - ` /api/register `  : POST : To register a user.
-- ` /test/reset ` : POST : To Sell a share in security.
+- ` /api/reset ` : POST : To Reset database (FOR TEST).
 </pre>
 
 ### Ex. Register
@@ -63,23 +63,25 @@ Output : (For same email)
 
 ---
 
-### Output screenshot :
+### Output screenshot for 1st new User - Role as admin :
 
-![tradebuy](https://user-images.githubusercontent.com/17231224/55734708-ab013a00-5a3d-11e9-9892-5281ea00772a.png)
+![admin](https://user-images.githubusercontent.com/17231224/71304419-75925600-23ec-11ea-9dff-c3ff2945e8ad.png)
+
+---
+### Output screenshot for subsequent new User - Role as User :
+
+![user](https://user-images.githubusercontent.com/17231224/71304437-a4103100-23ec-11ea-8207-e42d5ee8a54c.png)
 
 ---
 
-## Error handling for the invalid OwnerShip and quantity :
+### Output screenshot for same user email  :
 
-### Inavalid Quantity : 
-
-![errorhandling](https://user-images.githubusercontent.com/17231224/55734893-ffa4b500-5a3d-11e9-8bac-3678908bc74a.png) 
+![same](https://user-images.githubusercontent.com/17231224/71304442-d02bb200-23ec-11ea-8043-ce514a802a47.png)
 
 ---
+### Output screenshot to test -  reset the database  :
 
-### Invalid Ownership :
+![reset](https://user-images.githubusercontent.com/17231224/71304450-eafe2680-23ec-11ea-8c45-e38a3fc4d60a.png)
 
-![errorhandling2](https://user-images.githubusercontent.com/17231224/55734931-0a5f4a00-5a3e-11e9-8faa-743c190f8919.png)
-
-
+---
 
