@@ -1,6 +1,6 @@
 # Appiness nodejs task
 
-Deployed to Heroku Url : https://dry-castle-38837.herokuapp.com/
+Deployed to Heroku Url & swagger UI : https://dry-castle-38837.herokuapp.com/
 
 Github repo : https://github.com/vyshakg/appiness-nodejs-task
 
