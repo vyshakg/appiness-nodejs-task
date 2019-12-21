@@ -62,7 +62,10 @@ Output : (For same email)
 ![carbon](https://user-images.githubusercontent.com/17231224/71304270-8641cc80-23ea-11ea-859b-a3f91a19622c.png)
 
 ---
+### Swagger UI
+![swagger](https://user-images.githubusercontent.com/17231224/71305897-28b87a80-2400-11ea-9ade-d7dde2104dda.png)
 
+---
 ### Output screenshot for 1st new User - Role as admin :
 
 ![admin](https://user-images.githubusercontent.com/17231224/71304419-75925600-23ec-11ea-9dff-c3ff2945e8ad.png)
