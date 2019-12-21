@@ -15,8 +15,12 @@ dotenv.config();
 const host =
   process.env.NODE_ENV === "production"
     ? process.env.PROD_URL
-    : "localhost:4000";
+    : "http://localhost:4000";
 
+const apis =
+  process.env.NODE_ENV === "production"
+    ? ["./routes/*.js", "./model/swagger_def.yaml"]
+    : ["src/routes/*.js", "src/model/swagger_def.yaml"];
 const PORT = parseInt(process.env.PORT, 10) || 4000;
 const swaggerDefinition = {
   info: {
@@ -37,7 +41,7 @@ const swaggerDefinition = {
 };
 const options = {
   swaggerDefinition,
-  apis: ["src/routes/*.js", "src/model/swagger_def.yaml"]
+  apis
 };
 
 const swaggerDocs = swaggerJsDoc(options);
