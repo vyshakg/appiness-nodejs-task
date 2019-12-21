@@ -3,7 +3,7 @@ module.exports = {
   extends: ["airbnb-base", "prettier"],
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": 0,
     "no-console": "off",
     "linebreak-style": 0,
     "no-underscore-dangle": 0

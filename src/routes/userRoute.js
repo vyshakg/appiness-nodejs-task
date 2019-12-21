@@ -10,6 +10,45 @@ const userRoute = express.Router();
  * @returns : status which is SUCCESS/FAILURE  | message : "revelavent message w.r.t status"
  *
  */
+
+/**
+ * @swagger
+ * /api/register:
+ *   post:
+ *     tags:
+ *       - Users
+ *     name: Register
+ *     summary: Register a new user
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: body
+ *         in: body
+ *         schema:
+ *           $ref: '#/definitions/User'
+ *           type: object
+ *           properties:
+ *             username:
+ *               type: string
+ *             email:
+ *               type: string
+ *             password:
+ *               type: string
+ *               format: password
+ *         required:
+ *           - username
+ *           - email
+ *           - password
+ *     responses:
+ *       '200':
+ *         description: User created
+ *       '400':
+ *         description: Username or email already taken
+ *       '500':
+ *         description: Internal server error
+ */
 userRoute.post("/api/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -60,6 +99,20 @@ userRoute.post("/api/register", async (req, res) => {
       .json({ status: "FAILURE", message: "!Oops...Something went wrong" });
   }
 });
+
+/**
+ * @swagger
+ * /api/reset:
+ *  post:
+ *    tags:
+ *      - Reset
+ *    description: To reset the database
+ *    responses:
+ *      '200':
+ *        description: A successfully deleted
+ *      '500':
+ *        description: Internal server error
+ */
 
 userRoute.post("/api/reset", async (req, res) => {
   try {

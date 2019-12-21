@@ -1,19 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-/**
- * @swagger
- * definitions:
- *  User:
- *    type: Object
- *    properties:
- *      username:
- *        type: string
- *      email:
- *        type: string
- *      password:
- *        type: string
- *      user_role:
- *        type: UserRole
- */
+
 const userSchema = new mongoose.Schema(
   {
     username: { type: String },

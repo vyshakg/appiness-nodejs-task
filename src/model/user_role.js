@@ -1,14 +1,5 @@
 import mongoose from "mongoose";
 
-/**
- * @swagger
- * definitions:
- *  UserRole:
- *    type: Object
- *    properties:
- *      role:
- *        type: string
- */
 const UserRoleSchema = new mongoose.Schema(
   {
     role: {
