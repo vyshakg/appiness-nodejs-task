@@ -48,8 +48,11 @@ const options = {
 const swaggerDocs = swaggerJsDoc(options);
 
 const CORSconfig = {
+  credentials: true,
   origin: "*"
 };
+const readme =
+  process.env.NODE_ENV === "production" ? "README.md" : "../README.md";
 
 (async () => {
   try {
@@ -65,7 +68,7 @@ const CORSconfig = {
 
     // readme docs
     app.get("/", function(req, res) {
-      const pathdir = path.join(__dirname, "../README.md");
+      const pathdir = path.join(__dirname, readme);
 
       fs.readFile(pathdir, "utf8", function(err, data) {
         if (err) {
