@@ -42,7 +42,7 @@ const userRoute = express.Router();
  *           - email
  *           - password
  *     responses:
- *       '200':
+ *       '201':
  *         description: User created
  *       '400':
  *         description: Username or email already taken
@@ -106,9 +106,15 @@ userRoute.post("/api/register", async (req, res) => {
  *  post:
  *    tags:
  *      - Reset
+ *    name: Reset
+ *    summary: Reset Database - for testing purpose only
  *    description: To reset the database
+ *    consumes:
+ *      - application/json
+ *    produces:
+ *      - application/json
  *    responses:
- *      '200':
+ *      '201':
  *        description: A successfully deleted
  *      '500':
  *        description: Internal server error

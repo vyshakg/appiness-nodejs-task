@@ -12,6 +12,11 @@ import userRoute from "./routes/userRoute";
 
 dotenv.config();
 
+const host =
+  process.env.NODE_ENV === "production"
+    ? process.env.PROD_URL
+    : "localhost:4000";
+
 const PORT = parseInt(process.env.PORT, 10) || 4000;
 const swaggerDefinition = {
   info: {
@@ -19,7 +24,7 @@ const swaggerDefinition = {
     version: "1.0.0",
     description: "Endpoints to test the user registration routes"
   },
-  host: "localhost:4000",
+  host,
   basePath: "/",
   securityDefinitions: {
     bearerAuth: {
@@ -44,25 +49,35 @@ const swaggerDocs = swaggerJsDoc(options);
     app.use(logger("dev"));
     // connection establishment with mongodb
     await connectMongoDb();
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-
-    app.get("/", function(req, res) {
-      const pathdir = path.join(__dirname, "README.md");
+    app.get("/", (req, res) => {
+      return res.redirect(`${host}/api-docs`);
+    });
+    app.get("/readme", function(req, res) {
+      const pathdir = path.join(__dirname, "../README.md");
 
       fs.readFile(pathdir, "utf8", function(err, data) {
         if (err) {
           console.log(err);
         }
-        res.send(marked(data.toString()));
+        res.send(`
+        <html>
+        <style>
+        img {width: 100%;}
+        </style>
+        <body style = "margin-left:25rem; margin-right: 25rem;">
+        ${marked(data.toString())}
+        </body>
+        </html>`);
       });
     });
-
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.use(userRoute);
 
     app.listen(PORT, () => {
-      console.log(`server started at  http://localhost:${PORT}`);
+      console.log(`server started at  ${host}`);
     });
   } catch (e) {
     console.log(e);
