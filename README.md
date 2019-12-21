@@ -1,7 +1,7 @@
 # Appiness nodejs task
 
-Deployed to Heroku Url & swagger UI : https://dry-castle-38837.herokuapp.com/
-
+Deployed to Heroku Url & swagger UI : https://dry-castle-38837.herokuapp.com/(swagger having some issue use postman)
+READ me : https://dry-castle-38837.herokuapp.com/readme
 Github repo : https://github.com/vyshakg/appiness-nodejs-task
 
 
@@ -18,7 +18,7 @@ What I have Used :
 </pre>
 
 ### Api End-points :
-
+All APIs are exposed in https://dry-castle-38837.herokuapp.com/{endpoints}
 <pre>
 - ` /api/register `  : POST : To register a user.
 - ` /api/reset ` : POST : To Reset database (FOR TEST).
