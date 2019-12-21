@@ -10,7 +10,7 @@ const userRoute = express.Router();
  * @returns : status which is SUCCESS/FAILURE  | message : "revelavent message w.r.t status"
  *
  */
-userRoute.post("/register", async (req, res) => {
+userRoute.post("/api/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
@@ -56,12 +56,12 @@ userRoute.post("/register", async (req, res) => {
     });
   } catch (e) {
     return res
-      .status(400)
+      .status(500)
       .json({ status: "FAILURE", message: "!Oops...Something went wrong" });
   }
 });
 
-userRoute.post("/test/reset", async (req, res) => {
+userRoute.post("/api/reset", async (req, res) => {
   try {
     await User.deleteMany({});
     await UserRole.deleteMany({});
@@ -69,7 +69,7 @@ userRoute.post("/test/reset", async (req, res) => {
     return res.status(201).json({ status: "SUCCESS", message: "deleted" });
   } catch (e) {
     return res
-      .status(401)
+      .status(500)
       .json({ status: "FAILURE", message: "!Oops...Something went wrong" });
   }
 });
