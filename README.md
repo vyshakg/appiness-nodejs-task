@@ -1,6 +1,6 @@
 # Appiness nodejs task
 <pre>
-Deployed to Heroku Url & swagger UI : https://dry-castle-38837.herokuapp.com/(swagger having some issue use postman)
+Deployed to Heroku & swagger UI : https://dry-castle-38837.herokuapp.com/(swagger having some issue use postman)
 READ me : https://dry-castle-38837.herokuapp.com/readme
 Github repo : https://github.com/vyshakg/appiness-nodejs-task
 </pre>
